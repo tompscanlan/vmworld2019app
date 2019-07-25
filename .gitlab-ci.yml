@@ -1,0 +1,86 @@
+variables:
+  DEMO_ENVIRONMENT: ""
+  DOCKER_REGISTRY: "docker.local"
+  DOCKER_REGISTRY_USERNAME: ""
+  DOCKER_REGISTRY_PASSWORD: ""
+  DOCKER_REPOSITORY_PREFIX: "acme/acme-"
+  CHARTMUSEUM_REGISTRY: "chartmuseum.local/api/charts"
+  CHARTMUSEUM_KUBEAPPS_REPO: ""
+
+stages:
+  - initialize
+  - build
+  - push
+  - chart
+
+initialize_environment:
+  stage: initialize
+  script:
+    - ./scripts/initialize_environment.sh
+
+build_cart_image:
+  stage: build
+  script:
+    - ./scripts/build-image.sh cart
+
+build_catalogsvc_image:
+  stage: build
+  script:
+    - ./scripts/build-image.sh catalogsvc
+
+build_front_end_image:
+  stage: build
+  script:
+    - ./scripts/build-image.sh front_end
+
+build_order_image:
+  stage: build
+  script:
+    - ./scripts/build-image.sh order
+
+build_payment_image:
+  stage: build
+  script:
+    - ./scripts/build-image.sh payment
+
+build_user_image:
+  stage: build
+  script:
+    - ./scripts/build-image.sh user
+
+push_cart_image:
+  stage: push
+  script:
+    - ./scripts/push-image.sh cart
+
+push_catalogsvc_image:
+  stage: push
+  script:
+    - ./scripts/push-image.sh catalogsvc
+
+push_front_end_image:
+  stage: push
+  script:
+    - ./scripts/push-image.sh front_end
+
+push_order_image:
+  stage: push
+  script:
+    - ./scripts/push-image.sh order
+
+push_payment_image:
+  stage: push
+  script:
+    - ./scripts/push-image.sh payment
+
+push_user_image:
+  stage: push
+  script:
+    - ./scripts/push-image.sh user
+
+push_helm_chart:
+  stage: chart
+  script:
+    - ./scripts/build-chart.sh
+    - ./scripts/push-chart.sh
+    - ./scripts/update-kubeapps.sh
