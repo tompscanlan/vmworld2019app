@@ -7,6 +7,11 @@ variables:
   CHARTMUSEUM_REGISTRY: "chartmuseum.local/api/charts"
   CHARTMUSEUM_KUBEAPPS_REPO: ""
 
+image: docker:stable
+
+services:
+  - docker:dind
+
 stages:
   - initialize
   - build
@@ -52,6 +57,7 @@ push_cart_image:
   stage: push
   script:
     - ./scripts/push-image.sh cart
+
 
 push_catalogsvc_image:
   stage: push

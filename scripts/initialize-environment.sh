@@ -1,9 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-set -eu -o pipefail
+set -eu
 
 if [ "${DEMO_ENVIRONMENT:-none}" = "aws" ] ; then
-  aws ecr get-login --region us-east-1 | sed 's, -e none , ,'  | sh
+  if which git >/dev/null 2>/dev/null ; then
+    aws ecr get-login --region us-east-1 | sed 's, -e none , ,'  | sh
+  else
+    docker run --rm mesosphere/aws-cli ecr get-login --region us-east-1 | sed 's, -e none , ,'  | sh
+  fi
 fi
 
 if [ "${DOCKER_REGISTRY_USERNAME:-}" != "" ] && [ "${DOCKER_REGISTRY_PASSWORD:-}" != "" ] ; then

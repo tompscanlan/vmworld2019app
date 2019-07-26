@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 uniqueBuildTag() {
   echo "${CI_PROJECT_ID}:${CI_PIPELINE_ID}:${CI_RUNNER_ID}" | sha256sum - | sed 's,\s.*$,,'
 }
 
 imageTag() {
-  git rev-parse HEAD
+  echo "${CI_COMMIT_SHA:-$(git rev-parse HEAD)}"
 }

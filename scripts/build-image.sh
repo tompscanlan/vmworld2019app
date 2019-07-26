@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-set -eu -o pipefail
+set -eu
 
 . "$(dirname "${0}")/functions.sh"
 
@@ -22,4 +22,3 @@ fi
 for dir in "${dirs}" ; do
   buildImage "${dir}"
 done
-
