@@ -16,7 +16,7 @@ stages:
 initialize_environment:
   stage: initialize
   script:
-    - ./scripts/initialize_environment.sh
+    - ./scripts/initialize-environment.sh
 
 build_cart_image:
   stage: build
