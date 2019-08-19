@@ -9,9 +9,9 @@ service:
   port: 80
 
 image:
-  registry: "a"
-  repositoryPrefix: "b"
-  tag: "c35edfc1f7ea7ffb2a639b1c1b2234af8b6f58b5"
+  registry: gcr.io #PLACEHOLDER:image:registry
+  repositoryPrefix: vmwarecloudadvocacy/acmeshop- #PLACEHOLDER:image:repositoryPrefix
+  tag: 1.0.0 #PLACEHOLDER:image:tag
 
 passwords:
   cartRedis: ""
