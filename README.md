@@ -2,11 +2,11 @@
 
 ## Getting Started
 
-These instructions will allow you to run entire ACME Fitness App 
+These instructions will allow you to run entire ACME Fitness App
 
 ## Requirements
 
-Based on the type of deployment the requirements will vary 
+Based on the type of deployment the requirements will vary
 
 1. **docker-compose** - Needs docker-compose version 1.23.1+
 2. **kubernetes**
@@ -21,11 +21,11 @@ Other deployment modes coming soon
 
 ## Instructions
 
-1. Clone this repository 
+1. Clone this repository
 
 2. You will notice the following directory structure
 
-``` 
+```
 .
 ├── README.md
 ├── traffic-generator
@@ -56,12 +56,12 @@ Other deployment modes coming soon
 
 3. Switch to the appropriate directory for deployment
 
-a. [docker-compose](docker-compose)  
-b. [kubernetes-manifest](kubernetes-manifests)  
-b. [helm](helm)  
+a. [kubernetes/kubernetes-manifests](kubernetes/kubernetes-manifests)
+
+b. [kubernetes/helm](kubernetes/helm)
 
 
 ### Additional Info
 
-The [traffic-generator](traffic-generator) is based on **locust** and can be used to create various traffic patterns, if you need it for other demos associated with **Monitoring and Observability.** 
+The [traffic-generator](traffic-generator) is based on **locust** and can be used to create various traffic patterns, if you need it for other demos associated with **Monitoring and Observability.**
 
